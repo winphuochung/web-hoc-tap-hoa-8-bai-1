@@ -920,7 +920,7 @@ document.getElementById("quiz-form").addEventListener("submit",function(ev){
       var secs=Math.max(0,Math.round((Date.now()-(quizStartTime||Date.now()))/1000));
       var dur=Math.floor(secs/60)+" phút "+(secs%60)+" giây";
       var detail=QUIZ.map(function(item,qi){return (qi+1)+": "+"ABCD"[answers[qi]]+"/"+"ABCD"[item.ans];}).join(", ");
-      fetch("https://script.google.com/macros/s/AKfycbzjDD4Yah8kpdCMpC4j6HBS_Ta_P0xkAm4tXcvQg3KBiMNDW0XePsIU5VJlHeHPAuRf/exec",{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({name:document.getElementById("who-name").textContent,className:document.getElementById("who-class").textContent.replace(/^Lớp\s*/,""),score:correct,correct:correct+"/10",detail:detail,duration:dur})}).catch(function(){});
+      fetch("https://script.google.com/macros/s/AKfycbzjDD4Yah8kpdCMpC4j6HBS_Ta_P0xkAm4tXcvQg3KBiMNDW0XePsIU5VJlHeHPAuRf/exec",{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({name:document.getElementById("who-name").textContent,className:document.getElementById("who-class").textContent.replace(/^Lớp\s*/,""),score:correct,correct:correct,detail:detail,duration:dur})}).catch(function(){});
     }catch(e){}
   }
 });
